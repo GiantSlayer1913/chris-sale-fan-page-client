@@ -7,7 +7,7 @@ curl "https://chris-sale-fan-page-api.herokuapp.com/sign-in" \
   --data '{
     "credentials": {
       "email": "'"${EMAIL}"'",
-      "password": "'"${PASS}"'"
+      "password": "'"${PASSWORD}"'"
     }
   }'
 
