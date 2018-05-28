@@ -10,3 +10,19 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   -o-background-size: cover;
   background-size: cover;
 }
+
+#sign-up {
+  display: block;
+}
+
+#sign-in {
+  display: block;
+}
+
+#change-password {
+  display: none;
+}
+
+#sign-out {
+  display: none;
+}
