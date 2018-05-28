@@ -29,7 +29,61 @@
 <body>
   <h1>Chris Sale Fan Page</h1>
 
-  <!-- Navigation -->
+  <!-- AUTH FORMS -->
+  <div id="message"></div>
+
+
+
+  <!-- SIGN UP  -->
+  <form id="sign-up" class="border visible-on-start">
+    <fieldset>
+      <legend>Sign up!</legend>
+      <input required type="email" name="credentials[email]" placeholder="Email" autocomplete='email'>
+      <input required type="password" name="credentials[password]" placeholder="Password" autocomplete="false">
+      <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" autocomplete="off">
+      <input type="submit" value="Sign up!">
+    </fieldset>
+  </form>
+  <br>
+  <!-- End of Sign-up -->
+
+<!-- SIGN IN  -->
+  <form id="sign-in" class="border visible-on-start">
+    <fieldset>
+      <legend>Sign in!</legend>
+      <input required type="email" name="credentials[email]" placeholder="Email" autocomplete='email'>
+      <input required type="password" name="credentials[password]" placeholder="Password" autocomplete="off">
+      <input type="submit" value="Sign in!">
+    </fieldset>
+  </form>
+  <br>
+  <!-- END of Sign-i -->
+
+<!-- CHANGE PASSWORD  -->
+  <form id="change-password" class="border">
+    <fieldset>
+      <legend>Change password!</legend>
+      <input type="password" name="passwords[old]" placeholder="Old Password" autocomplete="off">
+      <input type="password" name="passwords[new]" placeholder="New Password" autocomplete="off">
+      <input type="submit" value="Change password!">
+    </fieldset>
+  </form>
+  <br>
+  <!-- End of CH-PASS -->
+
+<!-- SIGN OUT  -->
+  <form id="sign-out" class="border">
+    <fieldset>
+      <legend>Sign out!</legend>
+      <input type="submit" value="Sign out!">
+    </fieldset>
+  </form>
+  <br>
+  <!-- END of sign-out -->
+
+  <!-- END OF AUTH -->
+
+  <!-- Navigation BAR-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Start Bootstrap</a>
