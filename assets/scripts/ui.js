@@ -68,6 +68,20 @@ const signOutFailure = function () {
   $('#message').text('Failure to sign out')
   $('#message').css('background-color', 'red')
 }
+// End of AUTH UI
+
+// COMMENTS UI
+const createCommentSuccess = function (data) {
+  console.log('ui createCommentSuccess logging')
+  console.log(data)
+  $('#commentMessage').text('Successfully signed out')
+  $('#commentMessage').css('background-color', 'green')
+}
+const createCommentFailure = function (data) {
+  console.log('ui createCommentFailure logging')
+  $('#commentMessage').text('Failure to create comment')
+  $('#commentMessage').css('background-color', 'red')
+}
 
 module.exports = {
   signUpSuccess,
@@ -77,5 +91,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  createCommentSuccess,
+  createCommentFailure
 }

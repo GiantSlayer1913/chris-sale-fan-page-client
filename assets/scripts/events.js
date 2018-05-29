@@ -37,11 +37,21 @@ const onSignOut = function () {
     .catch(ui.signOutFailure)
 }
 
+const onCreateComment = function (event) {
+  console.log('events onCreateComment logging')
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.createComment(data)
+    .then(ui.createCommentSuccess)
+    .catch(ui.createCommentFailure)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUP)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
+  $('#create-comment').on('submit', onCreateComment)
 }
 
 module.exports = {

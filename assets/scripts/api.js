@@ -49,9 +49,25 @@ const signOut = function () {
   })
 }
 
+const createComment = function (data) {
+  console.log('api createComment logging')
+  console.log(data)
+  console.log(store)
+  return $.ajax({
+    url: config.apiURL + '/comments',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  createComment
 }
