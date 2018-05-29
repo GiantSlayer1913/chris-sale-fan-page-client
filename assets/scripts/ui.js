@@ -21,8 +21,14 @@ const signInSuccess = function (data) {
   $('#sign-up').trigger('reset')
   $('#sign-in').css('display', 'none')
   $('#sign-in').trigger('reset')
+  $('header').css('display', 'block')
+  $('footer').css('display', 'block')
+  $('.container').css('display', 'block')
+  $('nav.navbar').css('display', 'block')
+  $('.carousel-item').css('display', 'block')
   store.user = data.user
 }
+
 const signInFailure = function () {
   $('#message').text('Failure signing in')
   $('#message').css('background-color', 'red')

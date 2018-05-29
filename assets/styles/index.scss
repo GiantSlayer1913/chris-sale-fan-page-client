@@ -2,6 +2,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 .carousel-item {
+  display: none;
   height: 100vh;
   min-height: 300px;
   background: no-repeat center center scroll;
@@ -9,6 +10,22 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+header {
+  display: none;
+}
+
+footer {
+  display: none;
+}
+
+.container {
+  display: none;
+}
+
+nav.navbar {
+  display: none;
 }
 
 #sign-up {
