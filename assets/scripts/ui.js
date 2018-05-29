@@ -61,6 +61,11 @@ const signOutSuccess = function (data) {
   $('#sign-in').css('display', 'block')
   $('#change-password').css('display', 'none')
   $('#sign-out').css('display', 'none')
+  $('header').hide()
+  $('footer').hide()
+  $('.container').hide()
+  $('nav.navbar').hide()
+  $('.carousel-item').hide()
   store.user = null
 }
 const signOutFailure = function () {
