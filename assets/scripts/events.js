@@ -6,6 +6,7 @@ const ui = require('./ui')
 
 // AUTH FUNCTIONS
 const onSignUP = function (event) {
+  console.log('events sign-up logging')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signUp(data)
@@ -13,6 +14,7 @@ const onSignUP = function (event) {
     .catch(ui.signUpFailure)
 }
 const onSignIn = function (event) {
+  console.log('events sign-in logging')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signIn(data)
@@ -20,6 +22,7 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
 }
 const onChangePassword = function (event) {
+  console.log('events changePassword logging')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.changePassword(data)
@@ -27,6 +30,7 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 const onSignOut = function () {
+  console.log('events sign-out logging')
   event.preventDefault()
   api.signOut()
     .then(ui.signOutSuccess)
