@@ -7,7 +7,7 @@ curl "${API}${URL_PATH}" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
-  --header "Authorization: Bearer ${TOKEN}" \
+  --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "comment": {
       "text": "'"${TEXT}"'"
