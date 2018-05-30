@@ -1,9 +1,6 @@
 #!/bin/bash
 
-API="http://localhost:4741"
-URL_PATH="/comments"
-
-curl "${API}${URL_PATH}/${ID}" \
+curl "https://chris-sale-fan-page-api.herokuapp.com/comments/${ID}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \

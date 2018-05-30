@@ -1,9 +1,7 @@
 #!/bin/sh
 
-API="http://localhost:4741"
-URL_PATH="/comments"
 
-curl "${API}${URL_PATH}" \
+curl "https://chris-sale-fan-page-api.herokuapp.com/comments/" \
   --include \
   --request GET \
   --header "Authorization: Bearer ${TOKEN}"
