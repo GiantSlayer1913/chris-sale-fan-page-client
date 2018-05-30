@@ -54,7 +54,7 @@ const createComment = function (data) {
   console.log(data)
   console.log(store)
   return $.ajax({
-    url: config.apiURL + '/comments',
+    url: config.apiUrl + '/comments',
     method: 'POST',
     headers: {
       contentType: 'application/json',
@@ -64,10 +64,49 @@ const createComment = function (data) {
   })
 }
 
+const getComments = function (data) {
+  console.log('api getComments logging')
+  return $.ajax({
+    url: config.apiUrl + '/comments',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const updateComment = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/comments/' + data.comment.id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const deleteComment = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/comments/' + data.comment.id,
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  createComment
+  createComment,
+  getComments,
+  updateComment,
+  deleteComment
 }

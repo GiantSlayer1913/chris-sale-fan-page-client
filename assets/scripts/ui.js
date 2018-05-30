@@ -31,6 +31,10 @@ const signInSuccess = function (data) {
   $('.container').css('display', 'block')
   $('nav.navbar').css('display', 'block')
   $('.carousel-item').css('display', 'block')
+  $('#create-comment').css('display', 'block')
+  $('#get-comments').css('display', 'block')
+  $('#update-comment').css('display', 'block')
+  $('#destroy-comment').css('display', 'block')
   store.user = data.user
 }
 
@@ -59,13 +63,18 @@ const signOutSuccess = function (data) {
   $('#message').css('background-color', 'green')
   $('#sign-up').css('display', 'block')
   $('#sign-in').css('display', 'block')
-  $('#change-password').css('display', 'none')
-  $('#sign-out').css('display', 'none')
+  $('#change-password').hide()
+  $('#sign-out').hide()
   $('header').hide()
   $('footer').hide()
   $('.container').hide()
   $('nav.navbar').hide()
   $('.carousel-item').hide()
+  $('#change-password').hide()
+  $('#create-comment').hide()
+  $('#get-comments').hide()
+  $('#update-comment').hide()
+  $('#destroy-comment').hide()
   store.user = null
 }
 const signOutFailure = function () {
@@ -79,15 +88,47 @@ const signOutFailure = function () {
 const createCommentSuccess = function (data) {
   console.log('ui createCommentSuccess logging')
   console.log(data)
-  $('#commentMessage').text('Successfully signed out')
+  $('#commentMessage').text('Successfully created comment')
   $('#commentMessage').css('background-color', 'green')
 }
-const createCommentFailure = function (data) {
+const createCommentFailure = function () {
   console.log('ui createCommentFailure logging')
   $('#commentMessage').text('Failure to create comment')
   $('#commentMessage').css('background-color', 'red')
 }
 
+const getCommentsSuccess = function (data) {
+  console.log('ui getCommentsSuccess logging')
+  $('#commentMessage').text('Successfully got comments')
+  $('#commentMessage').css('background-color', 'green')
+}
+const getCommentsFailure = function () {
+  console.log('ui getCommentsFailure logging')
+  $('#commentMessage').text('Failure to get comments')
+  $('#commentMessage').css('background-color', 'red')
+}
+
+const updateCommentSuccess = (data) => {
+  console.log('ui updateCommentSuccess logging')
+  $('#commentMessage').text('Successfully updated comment')
+  $('#commentMessage').css('background-color', 'green')
+}
+const updateCommentFailure = () => {
+  console.log('ui updateCommentFailure logging')
+  $('#commentMessage').text('Failure to get comments')
+  $('#commentMessage').css('background-color', 'red')
+}
+
+const deleteCommentSuccess = (data) => {
+  console.log('ui updateCommentSuccess logging')
+  $('#commentMessage').text('Successfully deleted comment')
+  $('#commentMessage').css('background-color', 'green')
+}
+const deleteCommentFailure = () => {
+  console.log('ui updateCommentFailure logging')
+  $('#commentMessage').text('Failure to delete comments')
+  $('#commentMessage').css('background-color', 'red')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -98,5 +139,11 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   createCommentSuccess,
-  createCommentFailure
+  createCommentFailure,
+  getCommentsSuccess,
+  getCommentsFailure,
+  updateCommentSuccess,
+  updateCommentFailure,
+  deleteCommentSuccess,
+  deleteCommentFailure
 }

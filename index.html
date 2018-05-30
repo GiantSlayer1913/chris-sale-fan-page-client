@@ -187,16 +187,48 @@
   <!-- Footer -->
 
   <!--  Create Comment  -->
-  <form id="create-comment" class="border create-comment">
+  <form id="create-comment" class="border">
     <fieldset>
       <legend>Comment:</legend>
-      <input required type="text" name="comment[text]" placeholder="Write here...">
+      <input required type="text" name="comment[text]" placeholder="Write here..." autocomplete="off">
       <input type="submit" value="Submit">
     </fieldset>
   </form>
   <br>
 
   <div id="commentMessage"></div>
+
+  <!-- GET COMMENTS  -->
+    <form id="get-comments" class="border">
+      <fieldset>
+        <legend>Get Comments!</legend>
+        <input type="submit" value="Get Comments!">
+      </fieldset>
+    </form>
+    <br>
+
+  <!-- UPADTE COMMENT  -->
+    <form id="update-comment" class="border">
+      <fieldset>
+        <legend>Update Comment!</legend>
+        <input required type="text" name="comment[id]" placeholder="Comment ID" autocomplete="off">
+        <input required type="text" name="comment[text]" placeholder="Update here..." autocomplete="off">
+        <input type="submit" value="Update Team!">
+      </fieldset>
+    </form>
+    <br>
+
+  <!-- DESTROY COMMENT  -->
+    <form id="destroy-comment" class="border">
+      <fieldset>
+        <legend>Delete Team!</legend>
+        <input required type="text" name="comment[id]" placeholder="Comment ID" autocomplete="off">
+        <input type="submit" value="Delete Team!">
+      </fieldset>
+    </form>
+    <br>
+
+
 
   <footer class="py-5 bg-dark">
     <div class="container">
