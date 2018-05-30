@@ -90,6 +90,7 @@ const createCommentSuccess = function (data) {
   console.log(data)
   $('#commentMessage').text('Successfully created comment')
   $('#commentMessage').css('background-color', 'green')
+  store.comments = data.comments
 }
 const createCommentFailure = function () {
   console.log('ui createCommentFailure logging')
@@ -98,10 +99,35 @@ const createCommentFailure = function () {
 }
 
 const getCommentsSuccess = function (data) {
+  store.comments = data.comments
   console.log('ui getCommentsSuccess logging')
+  console.log('store.comment.id is...' + store.comment.id)
   $('#commentMessage').text('Successfully got comments')
   $('#commentMessage').css('background-color', 'green')
+  // Clears form fields
+  $('#commentForum').text('')
+  $('#commentMessage').text('')
+  $('#commentMessage').css('background', 'none')
+  // Prints Comments
+  if (data.comments.length > 0) {
+    $('#commentForum').append('Comment Id - Comment text', '<br>')
+    for (let i = 0; i < data.length; i++) {
+      const commentText = data.comment[i].text
+      const commentId = data.comment[i].id
+      $('#commentForum').append(commentId, '<br>', commentText, '<br>')
+      $('#commentForum').css('color', 'black')
+      $('#commentForum').css('background', 'rgb(199,199,199)')
+      $('#commentForum').css('display', 'block')
+      $('#commentForum').css('text-align', 'center')
+      $('#commentForum').css('font-size', '20px')
+    }
+  } else {
+    $('#commentForum').append("You don't have any comments. First, go to 'Create Comment!' and submit a comment.")
+    $('#commentForum').css('background-color', 'red')
+    $('#commentForum').css('font color', '#ffffff')
+  }
 }
+
 const getCommentsFailure = function () {
   console.log('ui getCommentsFailure logging')
   $('#commentMessage').text('Failure to get comments')
@@ -129,6 +155,7 @@ const deleteCommentFailure = () => {
   $('#commentMessage').text('Failure to delete comments')
   $('#commentMessage').css('background-color', 'red')
 }
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
