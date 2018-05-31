@@ -100,9 +100,10 @@ const createCommentFailure = function () {
 }
 
 const getCommentsSuccess = function (data) {
-  // store.comments = data.comments
+  store.comments = data.comments
+  console.log(store.comments)
   console.log('ui getCommentsSuccess logging')
-  // console.log('data.comment.user.email is...' + data.comment.user[2])
+  console.log('data.text is...' + data.text)
   $('#commentMessage').text('Successfully got comments')
   $('#commentMessage').css('background-color', 'green')
   // Clears form fields
@@ -113,10 +114,9 @@ const getCommentsSuccess = function (data) {
   if (data.comments.length > 0) {
     $('#commentForum').append('Comment Id - Comment text', '<br>')
     for (let i = 0; i < data.length; i++) {
-      // const commentText = data.comments[i].text
-      // const commentId = data.comments[i].id
-      // $('#commentForum').append(commentId, '<br>', commentText, '<br>')
-      $('#commentForum').append(store.data)
+      const commentText = data.comment[i].text
+      const commentId = data.comment[i].id
+      $('#commentForum').append(commentId, '<br>', commentText, '<br>')
       $('#commentForum').css('color', 'black')
       $('#commentForum').css('background', 'rgb(199,199,199)')
       $('#commentForum').css('display', 'block')
