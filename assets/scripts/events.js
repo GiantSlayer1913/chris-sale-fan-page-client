@@ -64,6 +64,7 @@ const onDeleteComment = function (event) {
     .then(ui.deleteCommentSuccess)
     .catch(ui.deleteCommentFailure)
 }
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUP)
   $('#sign-in').on('submit', onSignIn)

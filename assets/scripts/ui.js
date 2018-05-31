@@ -7,13 +7,19 @@ const signUpSuccess = function () {
   $('#message').text('Successfully signed up')
   $('#message').css('background-color', 'green')
   $('#sign-up').trigger('reset')
-  $('#commentsMsg').text('')
+  setTimeout(() => {
+    $('#message').html('')
+  }, 3000
+  )
 }
 const signUpFailure = function () {
   $('#message').text('Failure signing up')
   $('#message').css('background-color', 'red')
   $('#sign-up').trigger('reset')
-  $('#commentsMsg').text('')
+  setTimeout(() => {
+    $('#message').html('')
+  }, 3000
+  )
 }
 const signInSuccess = function (data) {
   $('#message').text('Successfully signed in')
@@ -24,17 +30,18 @@ const signInSuccess = function (data) {
   $('#sign-up').trigger('reset')
   $('#sign-in').css('display', 'none')
   $('#sign-in').trigger('reset')
-  $('header').css('display', 'block')
-  $('footer').css('display', 'block')
-  $('.container').css('display', 'block')
-  $('nav.navbar').css('display', 'block')
-  $('.carousel-item').css('display', 'block')
+  $('.mySlides-fade').css('display', 'block')
+  $('.slideshow-container').css('display', 'block')
   $('#create-comment').css('display', 'block')
   $('#get-comments').css('display', 'block')
   $('#update-comment').css('display', 'block')
   $('#destroy-comment').css('display', 'block')
+  $('.dots').css('display', 'block')
   $('#sign-in').trigger('reset')
-  $('#commentsMsg').text('')
+  setTimeout(() => {
+    $('#message').html('')
+  }, 3000
+  )
   store.user = data.user
 }
 
@@ -42,20 +49,29 @@ const signInFailure = function () {
   $('#message').text('Failure signing in')
   $('#message').css('background-color', 'red')
   $('#sign-in').trigger('reset')
-  $('#commentsMsg').text('')
+  setTimeout(() => {
+    $('#message').html('')
+  }, 3000
+  )
 }
 
 const changePasswordSuccess = function () {
   $('#message').text('Successfully changed password')
   $('#message').css('background-color', 'green')
   $('#change-password').trigger('reset')
-  $('#commentsMsg').text('')
+  setTimeout(() => {
+    $('#message').html('')
+  }, 3000
+  )
 }
 const changePasswordFailure = function () {
   $('#message').text('Failure to change password')
   $('#message').css('background-color', 'red')
   $('#change-password').trigger('reset')
-  $('#commentsMsg').text('')
+  setTimeout(() => {
+    $('#message').html('')
+  }, 3000
+  )
 }
 const signOutSuccess = function (data) {
   $('#message').text('Successfully signed out')
@@ -76,13 +92,22 @@ const signOutSuccess = function (data) {
   $('#destroy-comment').hide()
   $('#commentForum').hide()
   $('#commentsIndiv').hide()
-  $('#commentsMsg').text('')
+  $('#commentsHeader').hide()
+  $('.mySlides-fade').hide()
+  $('.dots').hide()
   store.user = null
+  setTimeout(() => {
+    $('#message').html('')
+  }, 3000
+  )
 }
 const signOutFailure = function () {
   $('#message').text('Failure to sign out')
   $('#message').css('background-color', 'red')
-  $('#commentsMsg').text('')
+  setTimeout(() => {
+    $('#message').html('')
+  }, 3000
+  )
 }
 // End of AUTH UI
 
@@ -91,19 +116,25 @@ const createCommentSuccess = function (data) {
   $('#commentsMsg').text('Successfully created comment')
   $('#commentsMsg').css('background-color', 'green')
   $('#create-comment').trigger('reset')
-  // store.comments = data.comments
+  setTimeout(() => {
+    $('#commentsMsg').html('')
+  }, 3000
+  )
 }
 const createCommentFailure = function () {
   $('#commentsMsg').text('Failure to create comment')
   $('#commentsMsg').css('background-color', 'red')
   $('#create-comment').trigger('reset')
+  setTimeout(() => {
+    $('#commentsMsg').html('')
+  }, 3000
+  )
 }
 
 const getCommentsSuccess = function (data) {
   store.comments = data.comments
   $('#commentsMsg').text('Successfully got comments')
   $('#commentsMsg').css('background-color', 'green')
-  // $('#commentsMsg').setTimeout(3000)
   // Clears form fields
   $('#commentsHeader').text('')
   $('#commentForum').text('')
@@ -128,45 +159,107 @@ const getCommentsSuccess = function (data) {
     $('#commentsHeader').append("You don't have any comments. First, go to 'Create Comment!' and submit a comment.")
     $('#commentsHeader').css('background-color', 'red')
     $('#commentsHeader').css('font color', '#ffffff')
-  //  $('#commentsHeader').setTimeout(3000)
   }
+  setTimeout(() => {
+    $('#commentsMsg').html('')
+  }, 3000
+  )
 }
 
 const getCommentsFailure = function () {
   $('#commentsMsg').text('Failure to get comments')
   $('#commentsMsg').css('background-color', 'red')
   $('#commentsIndiv').text('')
-  // $('#commentsMsg').setTimeout(3000)
+  setTimeout(() => {
+    $('#commentsMsg').html('')
+  }, 3000
+  )
 }
 
 const updateCommentSuccess = (data) => {
   $('#commentsHeader').text('Successfully updated comment')
   $('#commentsHeader').css('background-color', 'green')
   $('#commentsIndiv').text('')
-  $('#commentsMsg').text('')
   $('#update-comment').trigger('reset')
+  setTimeout(() => {
+    $('#commentsHeader').html('')
+  }, 3000
+  )
 }
 const updateCommentFailure = () => {
   $('#commentsHeader').text('Failure to get comments')
   $('#commentsHeader').css('background-color', 'red')
   $('#commentsIndiv').text('')
-  $('#commentsMsg').text('')
   $('#update-comment').trigger('reset')
+  setTimeout(() => {
+    $('#commentsHeader').html('')
+  }, 3000
+  )
 }
 
 const deleteCommentSuccess = (data) => {
   $('#commentsHeader').text('Successfully deleted comment')
   $('#commentsHeader').css('background-color', 'green')
   $('#commentsIndiv').text('')
-  $('#commentsMsg').text('')
   $('#destroy-comment').trigger('reset')
+  setTimeout(() => {
+    $('#commentsHeader').html('')
+  }, 3000
+  )
 }
 const deleteCommentFailure = () => {
   $('#commentsHeader').text('Failure to delete comments')
   $('#commentsHeader').css('background-color', 'red')
   $('#commentsIndiv').text('')
-  $('#commentsMsg').text('')
   $('#destroy-comment').trigger('reset')
+  setTimeout(() => {
+    $('#commentsHeader').html('')
+  }, 3000
+  )
+}
+
+// SLIDESHOW javascript
+const slideShowForward = () => {
+  $('#next').on('submit', () => {
+    plusSlides(1)
+  })
+}
+
+const slideShowBackward = () => {
+  $('#next').on('submit', () => {
+    plusSlides(-1)
+  })
+}
+
+let slideIndex = 1
+showSlides(slideIndex)
+
+const plusSlides = function (n) {
+  showSlides(slideIndex += n)
+}
+
+const currentSlide = function (n) {
+  showSlides(slideIndex = n)
+}
+
+function showSlides (n) {
+  let i
+  const slides = document.getElementsByClassName('mySlides-fade')
+  const dots = document.getElementsByClassName('dot')
+  if (n > slides.length) {
+    slideIndex = 1
+  }
+  if (n < 1) {
+    slideIndex = slides.length
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none'
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(' active', '')
+  }
+  slides[slideIndex - 1].style.display = 'block'
+  dots[slideIndex - 1].className += ' active'
 }
 
 module.exports = {
@@ -185,5 +278,9 @@ module.exports = {
   updateCommentSuccess,
   updateCommentFailure,
   deleteCommentSuccess,
-  deleteCommentFailure
+  deleteCommentFailure,
+  plusSlides,
+  currentSlide,
+  slideShowForward,
+  slideShowBackward
 }
