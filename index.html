@@ -196,8 +196,6 @@
   </form>
   <br>
 
-  <div id="commentMessage"></div>
-
   <!-- GET COMMENTS  -->
     <form id="get-comments" class="border">
       <fieldset>
@@ -206,6 +204,7 @@
       </fieldset>
     </form>
     <br>
+    <div id="commentsMsg"></div>
 
   <!-- UPADTE COMMENT  -->
     <form id="update-comment" class="border">
@@ -213,7 +212,7 @@
         <legend>Update Comment!</legend>
         <input required type="text" name="comment[id]" placeholder="Comment ID" autocomplete="off">
         <input required type="text" name="comment[text]" placeholder="Update here..." autocomplete="off">
-        <input type="submit" value="Update Team!">
+        <input type="submit" value="Update Comment!">
       </fieldset>
     </form>
     <br>
@@ -223,13 +222,16 @@
       <fieldset>
         <legend>Delete Team!</legend>
         <input required type="text" name="comment[id]" placeholder="Comment ID" autocomplete="off">
-        <input type="submit" value="Delete Team!">
+        <input type="submit" value="Delete Comment!">
       </fieldset>
     </form>
     <br>
 
-<div id="commentForum"></div>
-
+<div id="commentsHeader"></div>
+<div id="commentsForum">
+  <ul id="commentsIndiv">
+  </ul>
+</div>
 
   <footer class="py-5 bg-dark">
     <div class="container">

@@ -1,23 +1,19 @@
 'use strict'
 const store = require('./store')
+// const events = require('./events')
 
 // Auth Ui below
 const signUpSuccess = function () {
-  console.log('ui signUpSuccess logging')
   $('#message').text('Successfully signed up')
   $('#message').css('background-color', 'green')
   $('#sign-up').trigger('reset')
 }
 const signUpFailure = function () {
-  console.log('ui signUpFailure logging')
   $('#message').text('Failure signing up')
   $('#message').css('background-color', 'red')
   $('#sign-up').trigger('reset')
 }
 const signInSuccess = function (data) {
-  console.log('ui signInSuccess logging')
-  // Console log data
-  console.log(data)
   $('#message').text('Successfully signed in')
   $('#message').css('background-color', 'green')
   $('#change-password').css('display', 'block')
@@ -35,30 +31,27 @@ const signInSuccess = function (data) {
   $('#get-comments').css('display', 'block')
   $('#update-comment').css('display', 'block')
   $('#destroy-comment').css('display', 'block')
+  $('#sign-in').trigger('reset')
   store.user = data.user
 }
 
 const signInFailure = function () {
-  console.log('ui signInFailure logging')
   $('#message').text('Failure signing in')
   $('#message').css('background-color', 'red')
   $('#sign-in').trigger('reset')
 }
 
 const changePasswordSuccess = function () {
-  console.log('ui changePasswordSuccess logging')
   $('#message').text('Successfully changed password')
   $('#message').css('background-color', 'green')
   $('#change-password').trigger('reset')
 }
 const changePasswordFailure = function () {
-  console.log('ui changePasswordFailure logging')
   $('#message').text('Failure to change password')
   $('#message').css('background-color', 'red')
   $('#change-password').trigger('reset')
 }
 const signOutSuccess = function (data) {
-  console.log('ui signOutSuccess logging')
   $('#message').text('Successfully signed out')
   $('#message').css('background-color', 'green')
   $('#sign-up').css('display', 'block')
@@ -75,10 +68,11 @@ const signOutSuccess = function (data) {
   $('#get-comments').hide()
   $('#update-comment').hide()
   $('#destroy-comment').hide()
+  $('#commentForum').hide()
+  $('#commentsIndiv').hide()
   store.user = null
 }
 const signOutFailure = function () {
-  console.log('ui signOutFailure logging')
   $('#message').text('Failure to sign out')
   $('#message').css('background-color', 'red')
 }
@@ -86,77 +80,81 @@ const signOutFailure = function () {
 
 // COMMENTS UI
 const createCommentSuccess = function (data) {
-  console.log('ui createCommentSuccess logging')
-  console.log('data is...')
-  console.log(data)
-  $('#commentMessage').text('Successfully created comment')
-  $('#commentMessage').css('background-color', 'green')
+  $('#commentsMsg').text('Successfully created comment')
+  $('#commentsMsg').css('background-color', 'green')
+  $('#create-comment').trigger('reset')
   // store.comments = data.comments
 }
 const createCommentFailure = function () {
-  console.log('ui createCommentFailure logging')
-  $('#commentMessage').text('Failure to create comment')
-  $('#commentMessage').css('background-color', 'red')
+  $('#commentsMsg').text('Failure to create comment')
+  $('#commentsMsg').css('background-color', 'red')
+  $('#create-comment').trigger('reset')
 }
 
 const getCommentsSuccess = function (data) {
   store.comments = data.comments
-  console.log('ui getCommentsSuccess logging')
-  console.log(store.comments)
-  console.log('data.comments.text', data.comments.text)
-  console.log('data.comments.id', data.comments.id)
-  $('#commentMessage').text('Successfully got comments')
-  $('#commentMessage').css('background-color', 'green')
+  $('#commentsMsg').text('Successfully got comments')
+  $('#commentsMsg').css('background-color', 'green')
+  // $('#commentsMsg').setTimeout(3000)
   // Clears form fields
+  $('#commentsHeader').text('')
   $('#commentForum').text('')
-  $('#commentMessage').text('')
-  $('#commentMessage').css('background', 'none')
+  $('#commentsIndiv').text('')
+  $('#commentsHeader').css('background', 'none')
   // Prints Comments
   if (store.comments.length > 0) {
-    $('#commentForum').append('Comment Id - Comment text', '<br>')
+    $('#commentsHeader').append('Comment ID - User Email - Comment text', '<br>')
     for (let i = 0; i < store.comments.length; i++) {
       const commentText = store.comments[i].text
       const commentEmail = store.comments[i].user.email
-      $('#commentForum').append(commentEmail, ' says : "', commentText, '."', '<br>')
-      $('#commentForum').css('color', 'black')
-      $('#commentForum').css('background', 'rgb(199,199,199)')
-      $('#commentForum').css('display', 'block')
-      $('#commentForum').css('text-align', 'center')
-      $('#commentForum').css('font-size', '20px')
+      const commentId = store.comments[i].id
+      $('#commentsIndiv').append(commentId, '...', commentEmail, ' says: ', '"', commentText, '."', '<br>')
+      $('#commentsIndiv').css('color', 'black')
+      $('#commentsIndiv').css('background', 'rgb(199,199,199)')
+      $('#commentsIndiv').css('display', 'block')
+      $('#commentsIndiv').css('text-align', 'center')
+      $('#commentsIndiv').css('font-size', '20px')
     }
   } else {
-    $('#commentForum').append("You don't have any comments. First, go to 'Create Comment!' and submit a comment.")
-    $('#commentForum').css('background-color', 'red')
-    $('#commentForum').css('font color', '#ffffff')
+    $('#commentsHeader').css('display', 'block')
+    $('#commentsHeader').append("You don't have any comments. First, go to 'Create Comment!' and submit a comment.")
+    $('#commentsHeader').css('background-color', 'red')
+    $('#commentsHeader').css('font color', '#ffffff')
+  //  $('#commentsHeader').setTimeout(3000)
   }
 }
 
 const getCommentsFailure = function () {
-  console.log('ui getCommentsFailure logging')
-  $('#commentMessage').text('Failure to get comments')
-  $('#commentMessage').css('background-color', 'red')
+  $('#commentsMsg').text('Failure to get comments')
+  $('#commentsMsg').css('background-color', 'red')
+  $('#commentsIndiv').text('')
+  // $('#commentsMsg').setTimeout(3000)
 }
 
 const updateCommentSuccess = (data) => {
-  console.log('ui updateCommentSuccess logging')
-  $('#commentMessage').text('Successfully updated comment')
-  $('#commentMessage').css('background-color', 'green')
+  $('#commentsHeader').text('Successfully updated comment')
+  $('#commentsHeader').css('background-color', 'green')
+  $('#commentsIndiv').text('')
+  $('#update-comment').trigger('reset')
 }
 const updateCommentFailure = () => {
-  console.log('ui updateCommentFailure logging')
-  $('#commentMessage').text('Failure to get comments')
-  $('#commentMessage').css('background-color', 'red')
+  $('#commentsHeader').text('Failure to get comments')
+  $('#commentsHeader').css('background-color', 'red')
+  $('#commentsIndiv').text('')
+  $('#update-comment').trigger('reset')
 }
 
 const deleteCommentSuccess = (data) => {
-  console.log('ui updateCommentSuccess logging')
-  $('#commentMessage').text('Successfully deleted comment')
-  $('#commentMessage').css('background-color', 'green')
+  $('#commentsHeader').text('Successfully deleted comment')
+  $('#commentsHeader').css('background-color', 'green')
+  $('#commentsIndiv').text('')
+  $('#destroy-comment').trigger('reset')
 }
 const deleteCommentFailure = () => {
-  console.log('ui updateCommentFailure logging')
-  $('#commentMessage').text('Failure to delete comments')
-  $('#commentMessage').css('background-color', 'red')
+  $('#commentsHeader').text('Failure to delete comments')
+  $('#commentsHeader').css('background-color', 'red')
+  $('#commentsIndiv').text('')
+  $('#destroy-comment').trigger('reset')
 }
 
 module.exports = {

@@ -6,7 +6,6 @@ const ui = require('./ui')
 
 // AUTH FUNCTIONS
 const onSignUP = function (event) {
-  console.log('events sign-up logging')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signUp(data)
@@ -14,7 +13,6 @@ const onSignUP = function (event) {
     .catch(ui.signUpFailure)
 }
 const onSignIn = function (event) {
-  console.log('events sign-in logging')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signIn(data)
@@ -22,7 +20,6 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
 }
 const onChangePassword = function (event) {
-  console.log('events changePassword logging')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.changePassword(data)
@@ -30,7 +27,6 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 const onSignOut = function () {
-  console.log('events sign-out logging')
   event.preventDefault()
   api.signOut()
     .then(ui.signOutSuccess)
@@ -38,7 +34,6 @@ const onSignOut = function () {
 }
 
 const onCreateComment = function (event) {
-  console.log('events onCreateComment logging')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.createComment(data)
@@ -47,7 +42,6 @@ const onCreateComment = function (event) {
 }
 
 const onGetComments = function (event) {
-  console.log('events onGetComments logging')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.getComments(data)
@@ -56,17 +50,14 @@ const onGetComments = function (event) {
 }
 
 const onUpdateComment = function (event) {
-  console.log('events onUpdateComment logging')
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data.comment.id)
   api.updateComment(data)
     .then(ui.updateCommentSuccess)
     .catch(ui.updateCommentFailure)
 }
 
 const onDeleteComment = function (event) {
-  console.log('events onDeleteComment logging')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.deleteComment(data)
