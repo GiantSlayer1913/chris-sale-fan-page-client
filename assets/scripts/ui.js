@@ -101,9 +101,10 @@ const createCommentFailure = function () {
 
 const getCommentsSuccess = function (data) {
   store.comments = data.comments
-  console.log(store.comments)
   console.log('ui getCommentsSuccess logging')
-  console.log('data.text is...' + data.text)
+  console.log(store.comments)
+  console.log('data.comments.text', data.comments.text)
+  console.log('data.comments.id', data.comments.id)
   $('#commentMessage').text('Successfully got comments')
   $('#commentMessage').css('background-color', 'green')
   // Clears form fields
@@ -111,12 +112,12 @@ const getCommentsSuccess = function (data) {
   $('#commentMessage').text('')
   $('#commentMessage').css('background', 'none')
   // Prints Comments
-  if (data.comments.length > 0) {
+  if (store.comments.length > 0) {
     $('#commentForum').append('Comment Id - Comment text', '<br>')
-    for (let i = 0; i < data.length; i++) {
-      const commentText = data.comment[i].text
-      const commentId = data.comment[i].id
-      $('#commentForum').append(commentId, '<br>', commentText, '<br>')
+    for (let i = 0; i < store.comments.length; i++) {
+      const commentText = store.comments[i].text
+      const commentEmail = store.comments[i].user.email
+      $('#commentForum').append(commentEmail, ' says : "', commentText, '."', '<br>')
       $('#commentForum').css('color', 'black')
       $('#commentForum').css('background', 'rgb(199,199,199)')
       $('#commentForum').css('display', 'block')
