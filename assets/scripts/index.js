@@ -13,6 +13,9 @@ $('#create-comment').hide()
 $('#get-comments').hide()
 $('#update-comment').hide()
 $('#destroy-comment').hide()
+$('.slideshow-container').hide()
+$('#next').hide()
+$('#prev').hide()
 
 $(() => {
   events.addHandlers()

@@ -14,6 +14,13 @@ $black: #000;
   background-size: cover;
 }
 
+form {
+  border: 3px solid $black;
+  list-style: none;
+  margin: 10px;
+  padding: 5px;
+}
+
 #sign-up {
   display: block;
 }
@@ -35,15 +42,6 @@ $black: #000;
   text-align: center;
 }
 
-li {
-  background: gray;
-  border: 3px solid $black;
-  border-radius: 5px;
-  list-style: none;
-  margin: 10px;
-  padding: 5px;
-}
-
 .deleteMe {
   float: right;
   background: yellow;
@@ -53,16 +51,29 @@ p {
   display: block;
 }
 
-// SLIDESHOW CSS
-
 .container {
   display: none;
   box-sizing: border-box;
 }
 
+// SLIDESHOW CSS
+
+* { box-sizing: border-box; }
+
 body {
   font-family: Verdana, sans-serif;
   margin: 0;
+}
+
+.mySlides {
+  display: none;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
 }
 
 .dots {
@@ -79,24 +90,15 @@ img {
   vertical-align: middle;
 }
 
-/* Slideshow container */
-.slideshow-container {
-  display: none;
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
 /* Next & previous buttons */
-#prev,
-#next {
+#prev, #next {
   cursor: pointer;
   position: absolute;
   top: 50%;
   width: auto;
   padding: 16px;
   margin-top: -22px;
-  color: white;
+  color: green;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
@@ -137,7 +139,6 @@ img {
 
 /* The dots/bullets/indicators */
 .dot {
-  cursor: pointer;
   height: 15px;
   width: 15px;
   margin: 0 2px;
@@ -147,8 +148,7 @@ img {
   transition: background-color 0.6s ease;
 }
 
-.active,
-.dot:hover {
+.active {
   background-color: #717171;
 }
 

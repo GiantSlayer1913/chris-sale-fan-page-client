@@ -65,6 +65,14 @@ const onDeleteComment = function (event) {
     .catch(ui.deleteCommentFailure)
 }
 
+const onPreviousSlide = function (event) {
+  event.preventDefault()
+  ui.slideShowBackward()
+}
+const onNextSlide = function (event) {
+  event.preventDefault()
+  ui.slideShowForward()
+}
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUP)
   $('#sign-in').on('submit', onSignIn)
@@ -74,6 +82,8 @@ const addHandlers = () => {
   $('#get-comments').on('submit', onGetComments)
   $('#update-comment').on('submit', onUpdateComment)
   $('#destroy-comment').on('submit', onDeleteComment)
+  $('#prev').on('click', onPreviousSlide)
+  $('#next').on('click', onNextSlide)
 }
 
 module.exports = {

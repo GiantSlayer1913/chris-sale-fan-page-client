@@ -30,8 +30,11 @@ const signInSuccess = function (data) {
   $('#sign-up').trigger('reset')
   $('#sign-in').css('display', 'none')
   $('#sign-in').trigger('reset')
-  $('.mySlides-fade').css('display', 'block')
   $('.slideshow-container').css('display', 'block')
+  $('#first').css('display', 'block')
+  $('#next').show()
+  $('#prev').show()
+  $('.dots').show()
   $('#create-comment').css('display', 'block')
   $('#get-comments').css('display', 'block')
   $('#update-comment').css('display', 'block')
@@ -93,8 +96,10 @@ const signOutSuccess = function (data) {
   $('#commentForum').hide()
   $('#commentsIndiv').hide()
   $('#commentsHeader').hide()
-  $('.mySlides-fade').hide()
+  $('.mySlides-fade').css('display', 'none')
   $('.dots').hide()
+  $('#next').hide()
+  $('#prev').hide()
   store.user = null
   setTimeout(() => {
     $('#message').html('')
@@ -220,15 +225,11 @@ const deleteCommentFailure = () => {
 
 // SLIDESHOW javascript
 const slideShowForward = () => {
-  $('#next').on('submit', () => {
-    plusSlides(1)
-  })
+  plusSlides(1)
 }
 
 const slideShowBackward = () => {
-  $('#next').on('submit', () => {
-    plusSlides(-1)
-  })
+  plusSlides(-1)
 }
 
 let slideIndex = 1
