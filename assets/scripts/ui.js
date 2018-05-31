@@ -7,11 +7,13 @@ const signUpSuccess = function () {
   $('#message').text('Successfully signed up')
   $('#message').css('background-color', 'green')
   $('#sign-up').trigger('reset')
+  $('#commentsMsg').text('')
 }
 const signUpFailure = function () {
   $('#message').text('Failure signing up')
   $('#message').css('background-color', 'red')
   $('#sign-up').trigger('reset')
+  $('#commentsMsg').text('')
 }
 const signInSuccess = function (data) {
   $('#message').text('Successfully signed in')
@@ -32,6 +34,7 @@ const signInSuccess = function (data) {
   $('#update-comment').css('display', 'block')
   $('#destroy-comment').css('display', 'block')
   $('#sign-in').trigger('reset')
+  $('#commentsMsg').text('')
   store.user = data.user
 }
 
@@ -39,17 +42,20 @@ const signInFailure = function () {
   $('#message').text('Failure signing in')
   $('#message').css('background-color', 'red')
   $('#sign-in').trigger('reset')
+  $('#commentsMsg').text('')
 }
 
 const changePasswordSuccess = function () {
   $('#message').text('Successfully changed password')
   $('#message').css('background-color', 'green')
   $('#change-password').trigger('reset')
+  $('#commentsMsg').text('')
 }
 const changePasswordFailure = function () {
   $('#message').text('Failure to change password')
   $('#message').css('background-color', 'red')
   $('#change-password').trigger('reset')
+  $('#commentsMsg').text('')
 }
 const signOutSuccess = function (data) {
   $('#message').text('Successfully signed out')
@@ -70,11 +76,13 @@ const signOutSuccess = function (data) {
   $('#destroy-comment').hide()
   $('#commentForum').hide()
   $('#commentsIndiv').hide()
+  $('#commentsMsg').text('')
   store.user = null
 }
 const signOutFailure = function () {
   $('#message').text('Failure to sign out')
   $('#message').css('background-color', 'red')
+  $('#commentsMsg').text('')
 }
 // End of AUTH UI
 
@@ -135,12 +143,14 @@ const updateCommentSuccess = (data) => {
   $('#commentsHeader').text('Successfully updated comment')
   $('#commentsHeader').css('background-color', 'green')
   $('#commentsIndiv').text('')
+  $('#commentsMsg').text('')
   $('#update-comment').trigger('reset')
 }
 const updateCommentFailure = () => {
   $('#commentsHeader').text('Failure to get comments')
   $('#commentsHeader').css('background-color', 'red')
   $('#commentsIndiv').text('')
+  $('#commentsMsg').text('')
   $('#update-comment').trigger('reset')
 }
 
@@ -148,12 +158,14 @@ const deleteCommentSuccess = (data) => {
   $('#commentsHeader').text('Successfully deleted comment')
   $('#commentsHeader').css('background-color', 'green')
   $('#commentsIndiv').text('')
+  $('#commentsMsg').text('')
   $('#destroy-comment').trigger('reset')
 }
 const deleteCommentFailure = () => {
   $('#commentsHeader').text('Failure to delete comments')
   $('#commentsHeader').css('background-color', 'red')
   $('#commentsIndiv').text('')
+  $('#commentsMsg').text('')
   $('#destroy-comment').trigger('reset')
 }
 
