@@ -214,6 +214,7 @@ const deleteCommentSuccess = (data) => {
   }, 3000
   )
 }
+
 const deleteCommentFailure = () => {
   $('#commentsHeader').text('Failure to delete comments')
   $('#commentsHeader').css('background-color', 'red')
