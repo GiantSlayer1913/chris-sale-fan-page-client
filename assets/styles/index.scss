@@ -3,6 +3,20 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 $black: #000;
 
+#home {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-family: monospace;
+}
+
+h2 {
+  text-align: center;
+  font-family: monospace;
+}
+
 .carousel-item {
   display: none;
   height: 100vh;
