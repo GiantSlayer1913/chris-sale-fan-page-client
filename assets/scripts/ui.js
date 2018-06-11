@@ -38,6 +38,7 @@ const signInSuccess = function (data) {
   $('.dots').show()
   $('#create-comment').css('display', 'block')
   $('#get-comments').css('display', 'block')
+  $('#hide-comments').css('display', 'inline-flex')
   $('#update-comment').css('display', 'block')
   $('#destroy-comment').css('display', 'block')
   $('.dots').css('display', 'block')
@@ -92,6 +93,7 @@ const signOutSuccess = function (data) {
   $('#change-password').hide()
   $('#create-comment').hide()
   $('#get-comments').hide()
+  $('#hide-comments').css('display', 'none')
   $('#update-comment').hide()
   $('#destroy-comment').hide()
   $('#commentForum').hide()
@@ -184,20 +186,19 @@ const getCommentsFailure = function () {
 }
 
 const hideCommentsSuccess = (data) => {
-  $('#commentsHeader').hide()
-  $('#commentsIndiv').hide()
-  $('#commentsMsg').text('Poof!')
-  $('#commentsMsg').css('background-color', 'orange')
+  $('#commentsIndiv').css('display', 'none')
+  $('#commentsHeader').text('Poof!')
+  $('#commentsHeader').css('background-color', 'orange')
   setTimeout(() => {
-    $('#commentsMsg').html('')
+    $('#commentsHeader').html('')
   }, 3000
   )
 }
 const hideCommentsFailure = () => {
-  $('#commentsMsg').text('Failure to hide comments!')
-  $('#commentsMsg').css('background-color', 'red')
+  $('#commentsHeader').text('Failure to hide comments!')
+  $('#commentsHeader').css('background-color', 'red')
   setTimeout(() => {
-    $('#commentsMsg').html('')
+    $('#commentsHeader').html('')
   }, 3000
   )
 }
