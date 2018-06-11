@@ -69,6 +69,18 @@ const getComments = function (data) {
   })
 }
 
+const hideComments = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/comments',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 const updateComment = function (data) {
   return $.ajax({
     url: config.apiUrl + '/comments/' + data.comment.id,
@@ -100,5 +112,6 @@ module.exports = {
   createComment,
   getComments,
   updateComment,
-  deleteComment
+  deleteComment,
+  hideComments
 }

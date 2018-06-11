@@ -50,6 +50,14 @@ const onGetComments = function (event) {
     .catch(ui.getCommentsFailure)
 }
 
+const onHideComments = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.hideComments(data)
+    .then(ui.hideCommentsSuccess)
+    .catch(ui.hideCommentsFailure)
+}
+
 const onUpdateComment = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -81,6 +89,7 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut)
   $('#create-comment').on('submit', onCreateComment)
   $('#get-comments').on('submit', onGetComments)
+  $('#hide-comments').on('submit', onHideComments)
   $('#update-comment').on('submit', onUpdateComment)
   $('#destroy-comment').on('submit', onDeleteComment)
   $('#prev').on('click', onPreviousSlide)

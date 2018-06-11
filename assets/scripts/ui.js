@@ -183,6 +183,25 @@ const getCommentsFailure = function () {
   )
 }
 
+const hideCommentsSuccess = (data) => {
+  $('#commentsHeader').hide()
+  $('#commentsIndiv').hide()
+  $('#commentsMsg').text('Poof!')
+  $('#commentsMsg').css('background-color', 'orange')
+  setTimeout(() => {
+    $('#commentsMsg').html('')
+  }, 3000
+  )
+}
+const hideCommentsFailure = () => {
+  $('#commentsMsg').text('Failure to hide comments!')
+  $('#commentsMsg').css('background-color', 'red')
+  setTimeout(() => {
+    $('#commentsMsg').html('')
+  }, 3000
+  )
+}
+
 const updateCommentSuccess = (data) => {
   $('#commentsHeader').text('Successfully updated comment')
   $('#commentsHeader').css('background-color', 'green')
@@ -279,6 +298,8 @@ module.exports = {
   createCommentFailure,
   getCommentsSuccess,
   getCommentsFailure,
+  hideCommentsSuccess,
+  hideCommentsFailure,
   updateCommentSuccess,
   updateCommentFailure,
   deleteCommentSuccess,
