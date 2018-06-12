@@ -2,7 +2,9 @@
 const store = require('./store')
 // const events = require('./events')
 
-// Auth Ui below
+// AUTH ACTIONS
+
+// Sign-up
 const signUpSuccess = function () {
   $('#message').text('Successfully signed up')
   $('#message').css('background-color', 'green')
@@ -21,6 +23,8 @@ const signUpFailure = function () {
   }, 3000
   )
 }
+
+// Sign-in
 const signInSuccess = function (data) {
   $('#message').text('Successfully signed in')
   $('#message').css('background-color', 'green')
@@ -60,6 +64,7 @@ const signInFailure = function () {
   )
 }
 
+// Change-password
 const changePasswordSuccess = function () {
   $('#message').text('Successfully changed password')
   $('#message').css('background-color', 'green')
@@ -78,6 +83,8 @@ const changePasswordFailure = function () {
   }, 3000
   )
 }
+
+// Sign-out
 const signOutSuccess = function (data) {
   $('#message').text('Successfully signed out')
   $('#message').css('background-color', 'green')
@@ -121,6 +128,8 @@ const signOutFailure = function () {
 // End of AUTH UI
 
 // COMMENTS UI
+
+// Create comments
 const createCommentSuccess = function (data) {
   $('#commentsMsg').text('Successfully created comment')
   $('#commentsMsg').css('background-color', 'green')
@@ -140,6 +149,7 @@ const createCommentFailure = function () {
   )
 }
 
+// Get comments
 const getCommentsSuccess = function (data) {
   store.comments = data.comments
   $('#commentsMsg').text('Successfully got comments')
@@ -185,6 +195,7 @@ const getCommentsFailure = function () {
   )
 }
 
+// Hide Comments
 const hideCommentsSuccess = (data) => {
   $('#commentsIndiv').css('display', 'none')
   $('#commentsHeader').text('Poof!')
@@ -203,6 +214,7 @@ const hideCommentsFailure = () => {
   )
 }
 
+// Update Comments
 const updateCommentSuccess = (data) => {
   $('#commentsHeader').text('Successfully updated comment')
   $('#commentsHeader').css('background-color', 'green')
@@ -224,6 +236,7 @@ const updateCommentFailure = () => {
   )
 }
 
+// Delete Comments
 const deleteCommentSuccess = (data) => {
   $('#commentsHeader').text('Successfully deleted comment')
   $('#commentsHeader').css('background-color', 'green')
