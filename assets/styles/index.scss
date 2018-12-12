@@ -9,6 +9,7 @@ $black: #000;
   position: fixed;
   right: 0;
   top: 35%;
+  z-index: -1;
 }
 
 #home {
@@ -21,6 +22,11 @@ h1 {
 }
 
 h2 {
+  font-family: monospace;
+  text-align: center;
+}
+
+h4 {
   font-family: monospace;
   text-align: center;
 }
