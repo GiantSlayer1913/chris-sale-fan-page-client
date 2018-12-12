@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Chris Sale Fan Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <h1>Chris Sale Fan Page</h1>
+  <h2>by Mike Fisch</h2>
+  <h4>Check out my<a href="https://github.com/GiantSlayer1913/chris-sale-fan-page-client">Client</a> and <a href="https://github.com/GiantSlayer1913/chris-sale-fan-page-api">API</a> Githubs too!</h4>
+  <!-- AUTH FORMS -->
+  <div id="message"></div>
+
+  <!-- SIGN UP  -->
+  <form id="sign-up" class="border visible-on-start">
+    <fieldset>
+      <legend>Sign up!</legend>
+      <input required type="email" name="credentials[email]" placeholder="Email" autocomplete='email'>
+      <input required type="password" name="credentials[password]" placeholder="Password" autocomplete="false">
+      <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" autocomplete="off">
+      <input type="submit" value="Sign up!">
+    </fieldset>
+  </form>
+  <br>
+  <!-- End of Sign-up -->
+
+  <!-- SIGN IN  -->
+  <form id="sign-in" class="border visible-on-start">
+    <fieldset>
+      <legend>Sign in!</legend>
+      <input required type="email" name="credentials[email]" placeholder="Email" autocomplete='email'>
+      <input required type="password" name="credentials[password]" placeholder="Password" autocomplete="off">
+      <input type="submit" value="Sign in!">
+    </fieldset>
+  </form>
+  <br>
+  <!-- END of Sign-i -->
+
+  <!-- CHANGE PASSWORD  -->
+  <form id="change-password" class="border">
+    <fieldset>
+      <legend>Change password!</legend>
+      <input type="password" name="passwords[old]" placeholder="Old Password" autocomplete="off">
+      <input type="password" name="passwords[new]" placeholder="New Password" autocomplete="off">
+      <input type="submit" value="Change password!">
+    </fieldset>
+  </form>
+  <br>
+  <!-- End of CH-PASS -->
+
+  <!-- SIGN OUT  -->
+  <form id="sign-out" class="border">
+    <fieldset>
+      <legend>Sign out!</legend>
+      <input type="submit" value="Sign out!">
+    </fieldset>
+  </form>
+  <br>
+  <!-- END of sign-out -->
+
+  <!-- END OF AUTH -->
+
+<!-- HOMEPAGE PHOTO -->
+  <div id="home">
+    <img class="background" alt="Chris Sale in dugout" src="https://www.pixelstalk.net/wp-content/uploads/2016/03/Desktop-Baseball-Background-free.jpg">
+  </div>
+<!-- END of home photo -->
+
+  <!-- SLIDESHOW  -->
+  <div class="slideshow-container">
+    <div id="first" class="mySlides-fade">
+      <div class="numbertext">1 / 4</div>
+      <img alt="Chris Sale pitching 1" src="https://cdn.vox-cdn.com/thumbor/y9tCguN9CnTJO_BB2a_0FTXT7KY=/0x0:2858x1905/1200x800/filters:focal(1019x106:1475x562)/cdn.vox-cdn.com/uploads/chorus_image/image/54277761/668921536.0.jpg">
+      <!-- <div class="text">Caption Text</div> -->
+    </div>
+
+    <div id="second" class="mySlides-fade">
+      <div class="numbertext">2 / 4</div>
+      <img alt="Chris Sale pitching 2" src="https://cdn-s3.si.com/s3fs-public/2018/08/18/chris-sale-disabled-list-shoulder-inflammation.jpg">
+      <!-- <div class="text">Caption Two</div> -->
+    </div>
+
+    <div id="third" class="mySlides-fade">
+      <div class="numbertext">3 / 4</div>
+      <img alt="Chris Sale pitching 3" src="https://c.o0bg.com/rf/image_1200w/Boston/2011-2020/2017/04/10/BostonGlobe.com/Sports/Images/88a88659d9c440449394b9c6a348ac34-88a88659d9c440449394b9c6a348ac34-0.jpg?uuid=mSxB6B4sEeeRhFYc_hW7Cw">
+      <!-- <div class="text">Caption Three</div> -->
+    </div>
+
+    <div id="fourth" class="mySlides-fade">
+      <div class="numbertext">4 / 4</div>
+      <!-- <video autoplay loop id="myVideo"> -->
+        <iframe width="560" height="560" src="https://www.youtube.com/embed/fyU0bgXI0iE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <!-- </video> -->
+      </div>
+
+    <a id="prev">&#10094;</a>
+    <a id="next">&#10095;</a>
+</div>
+
+<br>
+<!-- DOTS -->
+<div class="dots">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+  <!-- END OF SLIDESHOW -->
+
+
+  <!--  Create Comment  -->
+  <form id="create-comment" class="border">
+    <fieldset>
+      <legend>Comment:</legend>
+      <input required type="text" name="comment[text]" placeholder="Write here..." autocomplete="off">
+      <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+  <br>
+
+  <!-- GET COMMENTS  -->
+    <form id="get-comments" class="border">
+      <fieldset>
+        <legend>Get Comments!</legend>
+        <input type="submit" value="Get Comments">
+      </fieldset>
+    </form>
+    <br>
+    <div id="commentsMsg"></div>
+
+  <!-- UPADTE COMMENT  -->
+    <form id="update-comment" class="border">
+      <fieldset>
+        <legend>Update Comment!</legend>
+        <p> To update a comment enter the comment ID, enter your text you'd like to change, and then click 'Update Comment'</p>
+        <input required type="text" name="comment[id]" placeholder="Comment ID" autocomplete="off">
+        <input required type="text" name="comment[text]" placeholder="Update here..." autocomplete="off">
+        <input type="submit" value="Update Comment!">
+      </fieldset>
+    </form>
+    <br>
+
+  <!-- DESTROY COMMENT  -->
+    <form id="destroy-comment" class="border">
+      <fieldset>
+        <legend>Delete Team!</legend>
+        <p> To delete a comment enter the comment ID and then click 'Delete Comment'</p>
+        <input required type="text" name="comment[id]" placeholder="Comment ID" autocomplete="off">
+        <input type="submit" value="Delete Comment!">
+      </fieldset>
+    </form>
+    <br>
+
+<!-- HIDE ALL COMMENTS -->
+    <form id="hide-comments" class="border">
+      <fieldset>
+        <input type="submit" value="Hide Comments">
+      </fieldset>
+    </form>
+
+<div id="commentsHeader"></div>
+<div id="commentsForum">
+  <ul id="commentsIndiv">
+  </ul>
+</div>
+
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+  <!-- END of Footer -->
+
+
+</body>
+
+</html>
